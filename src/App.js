@@ -118,7 +118,7 @@ function App() {
         </div>
         <div className="chat-container">
           <div className="input-area">
-            <input type="file" accept=".pdf" onChange={handleFileChange} />
+            <input type="file" accept="application/pdf" onChange={handleFileChange} />
             <button onClick={uploadDocument}>Upload Document</button>
           </div>
           <div className="messages-area">
