@@ -10,6 +10,7 @@ function App() {
   const [groupId, setGroupId] = useState(null); // Store group_id for the session
   const [pdfUrl, setPdfUrl] = useState(null); // State to store the PDF URL
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
 
   const uploadDocument = async () => {
@@ -36,6 +37,9 @@ function App() {
       setPdfUrl(URL.createObjectURL(file)); // Create a URL for the uploaded file and set it
     } catch (error) {
       console.error("Error uploading document:", error);
+      setError("There is a temporary issue with the server. Please try again later."); // Set the error message
+      setIsLoading(false);
+      
     }
     setIsLoading(false); // Stop loading
   };
@@ -70,6 +74,8 @@ function App() {
       setMessage("");
     } catch (error) {
       console.error("Error sending message:", error);
+      setError("There is a temporary issue with the server. Please try again later."); // Set the error message
+      setIsLoading(false);
     } finally {
       setIsLoading(false); // Stop loading
     }
@@ -92,6 +98,8 @@ function App() {
 
   return (
     <>
+      {error && <div className="error-message">{error}</div>}
+
       {isLoading && (
         <div className="overlay">
           <div className="spinner"></div>
