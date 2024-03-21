@@ -1,7 +1,7 @@
 /* Chat Container */
 .app-container {
   display: flex;
-  height: 90vh; /* adjust to fit your design */
+  height: 98vh; /* adjust to fit your design */
   background-color: #121212; /* Dark background */
 }
 
@@ -19,6 +19,7 @@
 }
 
 .chat-container {
+  width: 70%;
   flex-grow: 1;
   display: flex;
   flex-direction: column;
@@ -52,23 +53,22 @@
 .user-message {
   align-self: flex-end;
   background-color: #007bff; /* Cyberpunk neon blue for user messages */
-  box-shadow: 0 0 8px #00afff; /* Neon glow */
+  box-shadow: 0 0 6px #00afff; /* Neon glow */
 }
 
 /* Bot message */
 .bot-message {
   align-self: flex-start;
-  background-color: #dd4d4d; /* Cyberpunk neon pink for bot messages */
-  box-shadow: 0 0 8px #dd4d4d; /* Neon glow */
+  background-color: #11ac71; /* Cyberpunk neon pink for bot messages */
+  box-shadow: 0 0 6px #11ac71; /* Neon glow */
 }
 
-/* Input area */
 .input-area {
   display: flex;
   padding: 10px;
+  color: #fff; /* White text color for visibility */
 }
 
-/* Input box */
 .input-box {
   flex-grow: 1;
   border: 1px solid #333;
@@ -79,7 +79,6 @@
   color: #ffffff; /* White text for input */
 }
 
-/* Send button */
 .send-button {
   padding: 10px 20px;
   border: none;
@@ -90,8 +89,58 @@
   box-shadow: 0 0 8px #ff6500; /* Neon glow */
 }
 
-/* Making button focus outline match the rounded shape */
 .send-button:focus {
   outline: none;
   box-shadow: 0 0 0 2px rgba(255, 101, 0, 0.5);
+}
+
+/* File upload input styling */
+input[type="file"] {
+  color: white; /* Making the file input text visible */
+}
+
+/* Custom file upload button styling */
+.file-upload-btn {
+  background-color: #007bff; /* Cyberpunk neon blue */
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  box-shadow: 0 0 8px #007bff; /* Neon glow */
+}
+
+.file-upload-btn:hover {
+  background-color: #0056b3; /* Darker shade on hover */
+}
+
+/* Overlay that fills the entire screen */
+.overlay {
+  position: fixed; /* Use fixed position to cover the entire screen */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+  display: flex;
+  align-items: center; /* Center vertically */
+  justify-content: center; /* Center horizontally */
+  z-index: 1000; /* Ensure it's above other content */
+}
+
+
+
+.spinner {
+  border: 4px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top: 4px solid #007bff; /* Neon blue to match the theme */
+  width: 40px;
+  height: 40px;
+  animation: spin 2s linear infinite;
+  margin: auto;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
 }
